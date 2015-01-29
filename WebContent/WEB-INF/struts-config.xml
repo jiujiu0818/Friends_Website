@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans>
+  	<form-bean name="characterForm" type="cs4111.form.characterForm"/>
+  	<form-bean name="castForm" type="cs4111.form.castForm"/>
+  	<form-bean name="musicForm" type="cs4111.form.musicForm"/>
+  	<form-bean name="episodeForm" type="cs4111.form.episodeForm"/>
+  	<form-bean name="seasonForm" type="cs4111.form.seasonForm"/>
+  	<form-bean name="directorForm" type="cs4111.form.directorForm"/>
+  	<form-bean name="quizzesForm" type="cs4111.form.quizzesForm"/>
+  	<form-bean name="referenceForm" type="cs4111.form.referenceForm"/>
+  	<form-bean name="userForm" type="cs4111.form.userForm"/>  
+   	<form-bean name="rankForm" type="cs4111.form.rankForm"/>  	
+  </form-beans>
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings>
+  	<action path="/character" type="cs4111.action.characterAction" name="characterForm" parameter="method" scope="request">
+            <forward name="characterList" path="/character/characterList.jsp"/>
+            <forward name="queryCharacters" path="/character.do?method=queryCharacters"/>          
+    </action>
+    <action path="/cast" type="cs4111.action.castAction" name="castForm" parameter="method" scope="request">
+            <forward name="castList" path="/cast/castList.jsp"/>
+            <forward name="queryCast" path="/cast.do?method=queryCast"/>          
+    </action>
+    <action path="/music" type="cs4111.action.musicAction" name="musicForm" parameter="method" scope="request">
+            <forward name="musicList" path="/music/musicList.jsp"/>
+            <forward name="queryMusic" path="/music.do?method=queryMusic"/> 
+            <forward name="queryMusicForRanks" path="/music.do?method=queryMusicForRanks"/>   
+            <forward name="rankList" path="/rank/rankList.jsp"/>       
+    </action>
+     <action path="/episode" type="cs4111.action.episodeAction" name="episodeForm" parameter="method" scope="request">
+            <forward name="episodeList" path="/episode/episodeList.jsp"/>
+            <forward name="queryEpisode" path="/episode.do?method=queryEpisode"/>          
+    </action>
+    <action path="/season" type="cs4111.action.seasonAction" name="seasonForm" parameter="method" scope="request">
+            <forward name="seasonList" path="/season/seasonList.jsp"/>
+            <forward name="querySeason" path="/season.do?method=querySeason"/>          
+    </action>
+    <action path="/director" type="cs4111.action.directorAction" name="directorForm" parameter="method" scope="request">
+            <forward name="directorList" path="/director/directorList.jsp"/>
+            <forward name="queryDirector" path="/director.do?method=queryDirector"/>          
+    </action>
+    <action path="/quizzes" type="cs4111.action.quizzesAction" name="quizzesForm" parameter="method" scope="request">
+            <forward name="quizzesList" path="/quizzes/quizzesList.jsp"/>
+            <forward name="referenceList" path="/quizzes/referenceList.jsp"/>
+            <forward name="queryQuizzes" path="/quizzes.do?method=queryQuizzes"/>          
+    </action>
+    <action path="/reference" type="cs4111.action.referenceAction" name="referenceForm" parameter="method" scope="request">
+            <forward name="referenceList" path="/quizzes/referenceList.jsp"/>
+            <forward name="queryReference" path="/reference.do?method=queryReference"/>          
+    </action>
+    <action path="/rank" type="cs4111.action.rankAction" name="rankForm" parameter="method" scope="request">
+            <forward name="rankList" path="/rank/rankList.jsp"/>
+            <forward name="queryRank" path="/rank.do?method=queryRank"/>     
+            <forward name="queryRank" path="/rank.do?method=giveMusicRank"/>     
+    </action>
+    <action path="/login" type="cs4111.action.userAction" name="userForm" parameter="method" scope="request">
+            <forward name="login" path="/login/login.jsp"/>
+            <forward name="rankList" path="/rank/rankList.jsp"/>
+            <forward name="queryUser" path="/login.do?method=queryUser"/> 
+                     
+    </action>
+  </action-mappings>
+  <message-resources parameter="cs4111.struts.ApplicationResources" />
+</struts-config>
+
